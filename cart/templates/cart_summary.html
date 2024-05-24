@@ -47,7 +47,35 @@
                                             ${{ product.price }}
                                             <!-- <br/>ID: {{product.id}} -->
                                         {% endif %}
-            
+                                        <br/><br/>
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-2">Quantity</div>
+                                            <div class="col-md-2">
+                                                <select class="form-select" id="qty-cart">
+                                                    <option selected>
+                                                        {% for key, value in quantities.items %}
+                                                            {% if key == product.id|slugify%}
+                                                                {{ value }}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </option>
+
+                                                    {% comment %} !!!!!!! use this if above doesnt work !!!!!!!!!!!!!! {% endcomment %}
+                                                    {% comment %} {% for key, value in quantities.items %} {% endcomment %}
+                                                        {% comment %} {% if key == product.id|slugify%} {% endcomment %}
+                                                        {% comment %} <option selected>{{ value }}</option> {% endcomment %}
+                                                        {% comment %} {% endif %} {% endcomment %}
+                                                    {% comment %} {% endfor %} {% endcomment %}
+                                                    
+
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                </select>
+                                            </div>
+                                        </div>
                                         <br/><br/>
             
                                         <a href="{% url 'home'%}" class="btn btn-secondary">Home</a>
